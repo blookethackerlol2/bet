@@ -389,7 +389,7 @@
 	let devModeToggle = document.getElementById("developer-mode");
 	devModeToggle.checked = false;
 
-	devModeToggle.addEventListener("change", (ev) => {
+	devModeToggle.addEventListener("change", (ev) => {}
     	    console.log("Dev Mode On: " + devModeToggle.checked);
 
     	    if (devModeToggle.checked) {

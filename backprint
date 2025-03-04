@@ -408,7 +408,7 @@
     	    document.getElementById("add-ext").addEventListener("click", async () => {
 		this.blur();
                 let name = prompt("Extension Name");
-                let url = prompt("Frame URL (must be under web_accessible_resources)");
+                let url = prompt("Frame URL (find under under web_accessible_resources in manifest.json file)");
                 console.log(url);
                 let icon = prompt("Icon URL (optional)");
 

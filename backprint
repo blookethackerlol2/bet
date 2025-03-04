@@ -416,7 +416,7 @@
                 if (success) {
                     alert("Successfully added extension!");
                 } else {
-                    alert("Failed to add extension :(");
+                    alert("Failed to add extension :");
                 }
             });
         });

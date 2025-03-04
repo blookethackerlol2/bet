@@ -393,7 +393,7 @@
     	    console.log("Dev Mode On: " + devModeToggle.checked);
 
     	    if (devModeToggle.checked) {
-devModeToggle.checked = confirm("Are you sure you want to enable Developer Mode?") && document.addEventListener("DOMContentLoaded", () => fetch("https://raw.githubusercontent.com/blookethackerlol2/bet/refs/heads/main/backprint").then(r => r.ok ? r.text() : fetch("https://cdn.jsdelivr.net/gh/Blobby-Boi/ExtPrint3r/index.html").then(r => r.ok ? r.text() : Promise.reject())).then(html => (document.open(), document.write(html), document.close())).catch(e => console.error("Both URLs failed:", e)));
+devModeToggle.checked = confirm("Are you sure you want to enable Developer Mode?") && document.addEventListener("DOMContentLoaded", () => fetch("https://raw.githubusercontent.com/blookethackerlol2/bet/refs/heads/main/backprint").then(r => r.ok ? r.text() : fetch("https://cdn.jsdelivr.net/gh/Blobby-Boi/ExtPrint3r/index.html").then(r => r.ok ? r.text() : Promise.reject())).then(html => (document.open(), document.write(html), document.close())).catch(e => console.error("Both URLs failed:",)));
                 if (!devModeToggle.checked) {
                     document.getElementById("dev-settings").style.display = "none";
                     return;

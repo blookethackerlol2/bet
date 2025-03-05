@@ -323,7 +323,7 @@
     </div>
     <div class="main-content">
         <div id="printer-tab">
-            <h3 style="user-select: none; font-weight: 400;">All Extensions</h3>
+            <h3 style="user-select: none; font-weight: 400;"> Developer Mode </h3>
             <div id="div-container"></div>
 	</div>
 	<div id="about-tab" style="display: none;">
@@ -337,7 +337,7 @@
     </div>
    	<div id="settings-tab" style="display: none;">
             <h2 style="user-select: none;">Settings</h2>
-	    <label for="show-all-extensions" style="pointer-events: none;">Show All Extensions</label><input id="show-all-extensions" type="checkbox">
+	    <label for="developer-mode" style="pointer-events: none;">Developer Mode</label><input id="developer-mode" type="checkbox">
             <br>
             <label for="iframe-count">Amount of iframes</label><input type="range" min="100" max="100000" value="10000" step="100" id="iframe-count"><span id="iframe-count-display">10000</span>
             <div style="border-top: 1px solid #444; margin-bottom: 10px; margin-top: 20px; padding-top: 10px; width: 100%;"></div>
@@ -381,7 +381,7 @@
             })
         })
 	    
-	document.getElementById("show-all-extensions").addEventListener("change", function () {
+	document.getElementById("developer-mode").addEventListener("change", function () {
    	let extContainer = document.getElementById("div-container"); extContainer.innerHTML = "";
     	    createExtensionButtons();
 	});

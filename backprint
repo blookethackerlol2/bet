@@ -629,8 +629,8 @@ if (iframeCountEl) {
 	    
 	function createIframesAndPrint(extPage, extIcon) {
     	    let printerWindow = window.open("", "_blank");
-    	    printerWindow.document.title = 'The Print3r';
-    	    printerWindow.document.body.style.backgroundColor = '#1e1f22';
+    	    printerWindow.document.title = 'The better printr';
+    	    printerWindow.document.body.style.backgroundColor = '#1f82de';
 
     	    let icon = printerWindow.document.createElement('link');
     	    icon.rel = 'icon';
@@ -715,7 +715,7 @@ if (iframeCountEl) {
             overlay.style.alignItems = "center";
 
             const popup = document.createElement("div");
-            popup.style.background = "#292a2d";
+            popup.style.background = "#0c2966";
             popup.style.color = "white";
             popup.style.width = "500px";
             popup.style.borderRadius = "10px";

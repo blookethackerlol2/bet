@@ -39,7 +39,7 @@
             left: 0;
             width: 250px;
             height: 100vh;
-            background-color: #fcfcfc;
+            background-color: #656770;
             color: white;
             display: flex;
             flex-direction: column;

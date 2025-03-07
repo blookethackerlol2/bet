@@ -27,7 +27,7 @@
 	}
 
     	body {
-            background-color: #1138ad;
+            background-color: #1a2852;
             color: white;
             display: flex;
             margin-left: 250px;

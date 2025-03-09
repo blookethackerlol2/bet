@@ -489,7 +489,8 @@ devModeToggle.checked = confirm("Are you sure you want to enable Developer Mode?
 if (!extContainer) {
     console.error("div-container not found in DOM!");
 }
-       async function TryAddExtension() {
+    async function TryAddExtension() {
+    const response = await fetch(manifestUrl);  // ✅ Works now because function is async
     if (!extContainer) {
         console.error("Cannot add extension: div-container is missing");
         return;

@@ -536,6 +536,7 @@ if (!extContainer) {
     });
 }
 
+
     const extensions = await getAllExtensions();
     extContainer.innerHTML = ""; // Clear previous extensions
 

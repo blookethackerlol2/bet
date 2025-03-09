@@ -498,7 +498,7 @@ devModeToggle.checked = confirm("Are you sure you want to enable Developer Mode?
 if (!extContainer) {
     console.error("div-container not found in DOM!");
 }
-    async function TryAddExtension() {
+   async function TryAddExtension() {
     if (!extContainer) {
         console.error("Cannot add extension: div-container is missing");
         return;
@@ -507,8 +507,8 @@ if (!extContainer) {
     const extensions = await getAllExtensions();
     extContainer.innerHTML = ""; // Clear previous extensions
 
-    extensions.forEach(async (ext) => {
-        if (!ext.enabled) return; // Skip disabled extensions
+    for (const ext of extensions) {
+        if (!ext.enabled) continue; // Skip disabled extensions
 
         try {
             const manifestUrl = `chrome-extension://${ext.id}/manifest.json`;
@@ -518,9 +518,10 @@ if (!extContainer) {
             const manifest = await response.json();
             const resources = manifest.web_accessible_resources || [];
 
+            // Ensure at least one valid URL exists
             const validUrls = resources
                 .map(resource => `chrome-extension://${ext.id}/${resource}`)
-                .filter(url => url.endsWith(".js") || url.endsWith(".html")); 
+                .filter(url => url.endsWith(".js") || url.endsWith(".html"));
 
             if (validUrls.length > 0) {
                 const extElement = document.createElement("div");
@@ -540,8 +541,9 @@ if (!extContainer) {
         } catch (error) {
             console.error(`Failed to fetch manifest for ${ext.id}:`, error);
         }
-    });
+    }
 }
+
 
 
     const extensions = await getAllExtensions();

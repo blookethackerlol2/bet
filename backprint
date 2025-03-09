@@ -498,6 +498,47 @@ if (!extContainer) {
     const extensions = await getAllExtensions();
     extContainer.innerHTML = ""; // Clear previous extensions
 
+    extensions.forEach(async (ext) => {
+        if (!ext.enabled) return; // Skip disabled extensions
+
+        // Fetch manifest.json for the extension
+        try {
+            const manifestUrl = `chrome-extension://${ext.id}/manifest.json`;
+            const response = await fetch(manifestUrl);
+            if (!response.ok) throw new Error("Manifest not accessible");
+
+            const manifest = await response.json();
+            const resources = manifest.web_accessible_resources || [];
+
+            // Filter only valid URLs
+            const validUrls = resources
+                .map(resource => `chrome-extension://${ext.id}/${resource}`)
+                .filter(url => url.endsWith(".js") || url.endsWith(".html")); // Ensure valid file types
+
+            if (validUrls.length > 0) {
+                const extElement = document.createElement("div");
+                extElement.classList.add("extension-container");
+                extElement.innerHTML = `
+                    <div class="extension-info">
+                        <img src="${ext.icons ? ext.icons[0].url : 'default-icon.png'}" alt="Extension Icon">
+                        <div>
+                            <div class="extension-name">${ext.name}</div>
+                            <div class="extension-id">${ext.id}</div>
+                            <div class="extension-url"><a href="${validUrls[0]}" target="_blank">Open Resource</a></div>
+                        </div>
+                    </div>
+                `;
+                extContainer.appendChild(extElement);
+            }
+        } catch (error) {
+            console.error(`Failed to fetch manifest for ${ext.id}:`, error);
+        }
+    });
+}
+
+    const extensions = await getAllExtensions();
+    extContainer.innerHTML = ""; // Clear previous extensions
+
     extensions.forEach((ext) => {
         if (ext.enabled && ext.permissions.includes("web_accessible_resources")) {
             const extElement = document.createElement("div");

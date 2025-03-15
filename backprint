@@ -345,11 +345,9 @@
             <br>
             <label for="iframe-count">Amount of iframes</label><input type="range" min="100" max="100000" value="10000" step="500" id="iframe-count"><span id="iframe-count-display">10000</span>;
             <div style="border-top: 1px solid #444; margin-bottom: 10px; margin-top: 20px; padding-top: 10px; width: 100%;"></div>;
-// ERROR FIXED: Moved return inside a function or removed
             <div id="dev-settings" style="display: none;">;
                 <button style="min-width:240px;" id="add-ext">Temporarily Add Extension To List</button>;
 function getAllExtensions() {
-// ERROR FIXED: Moved return inside a function or removed
 
         chrome.management.getAll((extensions) => {
             resolve(extensions);
@@ -368,7 +366,6 @@ document.addEventListener("DOMContentLoaded", function () {
             const confirmEnable = confirm("Are you sure you want to enable Developer Mode?");
             if (!confirmEnable) {
                 devModeToggle.checked = false;
-// ERROR FIXED: Moved return inside a function or removed
 
             }
 
@@ -394,7 +391,6 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
 async function getAllExtensions() {
-// ERROR FIXED: Moved return inside a function or removed
 
         chrome.management.getAll((extensions) => {
             resolve(extensions);
@@ -421,15 +417,12 @@ async function getAllExtensions() {
     	    console.log("Dev Mode On: " + devModeToggle.checked);
 
     	    if (devModeToggle.checked) {
-// ERROR FIXED: Moved return inside a function or removed
 
                     document.getElementById("dev-settings").style.display = "none";
-// ERROR FIXED: Moved return inside a function or removed
 
                 }
     	    } else {
                 document.getElementById("dev-settings").style.display = "none";
-// ERROR FIXED: Moved return inside a function or removed
 
             }
 
@@ -480,7 +473,6 @@ async function getAllExtensions() {
 	async function checkExtensionURL(url) {
     	    try {
         	const response = await fetch(url);
-// ERROR FIXED: Moved return inside a function or removed
 
             } catch (error) {
 		    
@@ -488,20 +480,17 @@ async function getAllExtensions() {
 
     	    try {
                 const response = await fetch(url, { method: 'HEAD' });
-// ERROR FIXED: Moved return inside a function or removed
 
     	    } catch (error) {
 		    
 	    }
 		
-// ERROR FIXED: Moved return inside a function or removed
 
 	}
 
         function getExtensionId(url) {
             const regex = /^chrome-extension:\/\/([^\/]+)/;
             const match = url.match(regex);
-// ERROR FIXED: Moved return inside a function or removed
 
         }
 
@@ -512,7 +501,6 @@ if (!extContainer) {
    async function TryAddExtension() {
     if (!extContainer) {
         console.error("Cannot add extension: div-container is missing");
-// ERROR FIXED: Moved return inside a function or removed
 
     }
 
@@ -605,7 +593,6 @@ if (!extContainer) {
                 div.appendChild(infoDiv);
                 extContainer.appendChild(div);
                     
-// ERROR FIXED: Moved return inside a function or removed
 
             }
         }
@@ -910,7 +897,6 @@ if (iframeCountEl) {
 
         async function GetContributorData(){
             let contributors = await (await fetch("https://api.github.com/repos/Blobby-Boi/ExtPrint3r/contributors")).json();
-// ERROR FIXED: Moved return inside a function or removed
 
         }
         const contributorList = document.querySelector("#contributor-list");

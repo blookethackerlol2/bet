@@ -24,8 +24,6 @@
 
         chrome.management.getAll((extensions) => {
             resolve(extensions);
-        });
-    });
 }
     <style>
     	@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400&display=swap");
@@ -349,7 +347,6 @@
             <label for="iframe-count">Amount of iframes</label><input type="range" min="100" max="100000" value="10000" step="500" id="iframe-count"><span id="iframe-count-display">10000</span>;
             <div style="border-top: 1px solid #444; margin-bottom: 10px; margin-top: 20px; padding-top: 10px; width: 100%;"></div>;
 // ERROR FIXED: Moved return inside a function or removed
-;
             <div id="dev-settings" style="display: none;">;
                 <button style="min-width:240px;" id="add-ext">Temporarily Add Extension To List</button>;
 function getAllExtensions() {
@@ -357,8 +354,6 @@ function getAllExtensions() {
 
         chrome.management.getAll((extensions) => {
             resolve(extensions);
-        });
-    });
 }
             </div>
         </div>
@@ -404,8 +399,6 @@ async function getAllExtensions() {
 
         chrome.management.getAll((extensions) => {
             resolve(extensions);
-        });
-    });
 }
          optionButtons.forEach((button)=>{
             let dataName = button.getAttribute("data-name");

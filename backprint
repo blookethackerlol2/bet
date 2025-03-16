@@ -22,8 +22,10 @@
 function getAllExtensions() {
     return new Promise((resolve) => {
         chrome.management.getAll((extensions) => {
-            resolve(extensions);  // ✅ Correctly resolving the promise
+            resolve(extensions); // Now resolve is correctly handled
         });
+    });
+}
     });
 }
 
@@ -31,12 +33,14 @@ function getAllExtensions() {
     	@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400&display=swap");
 	* {
 	    font-family: "Roboto", arial;
+	}
 
     	body {
             background-color: #1a2852;
             color: white;
             display: flex;
             margin-left: 250px;
+        }
 
     	.side-panel {
             position: fixed;
@@ -50,17 +54,20 @@ function getAllExtensions() {
             flex-direction: column;
             padding: 20px;
             border-right: 1px solid #444;
+        }
 
         .side-panel img {
             width: 64px;
             height: 64px;
             margin-bottom: 20px;
 	    user-select: none;
+    	}
 
     	.side-panel h2 {
     	    font-weight: bold;
     	    margin-bottom: 40px;
 	    user-select: none;
+    	}
 
     	.side-panel .option {
 	    position: relative;
@@ -75,14 +82,17 @@ function getAllExtensions() {
     	    align-items: center;
             padding-left: 50px;
             margin-left: -50px;
+    	}
 
     	.side-panel .option:hover {
             background-color: #062a73;
             color: white;
+    	}
 
     	.side-panel .option.selected {
             background-color: #8ab4f8;
             color: blue;
+    	}
 
     	.side-panel footer {
             margin-top: auto;
@@ -90,16 +100,20 @@ function getAllExtensions() {
             padding: 10px 0;
             font-size: 14px;
             color: #c4c7c5;
+    	}
 
    	 .side-panel footer a {
             color: #9dbae9;
+    	}
 
     	.side-panel footer a:hover {
             text-decoration: underline;
+    	}
 
     	.main-content {
             flex-grow: 1;
             padding: 20px;
+    	}
 
     	.extension-container {
             margin-left: 12px;
@@ -116,6 +130,7 @@ function getAllExtensions() {
             position: relative;
             background: #3763e6;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    	}
 
     	.extension-info {
             display: flex;
@@ -123,19 +138,23 @@ function getAllExtensions() {
             margin: 10px;
             gap: 8px;
             justify-content: flex-end;
+    	}
 
     	.extension-name {
             font-size: 13px;
             color: white;
+    	}
 
     	.extension-id {
             font-size: 13px;
             color: #c4c7c5;
             margin-left: 10px;
+   	 }
 
    	.extension-container img {
             width: 40px;
             height: 40px;
+   	}
 
     	button {
             background: transparent;
@@ -150,29 +169,36 @@ function getAllExtensions() {
             align-self: flex-end;
             transition: background 0.2s ease-in-out;
             outline: none;
+    	}
 
    	button:hover {
             background: #38393b;
+   	}
 
     	a {
             color: #9dbae9;
+    	}
 
     	h3 {
             margin-left: 35px;
             color: white;
             margin-top: 20px;
+    	}
 
     	#div-container {
             display: flex;
             flex-wrap: wrap;
             margin-left: 20px;
            width: calc(100% - 20px);
+    	}
     
     	#about-tab, #settings-tab {
     	    margin-left: 50px;
+	}
     
     	#printer-tab {
     	    margin-left: 10px;
+	}
 
 	.ripple {
             position: absolute;
@@ -181,11 +207,14 @@ function getAllExtensions() {
             background: rgba(0, 0, 0, 0.2);
             animation: ripple-animation 0.2s linear;
             pointer-events: none;
+        }
 
         @keyframes ripple-animation {
             to {
                 transform: scale(2);
                 opacity: 0;
+            }
+        }
 
 	.switch {
     	    position: relative;
@@ -193,11 +222,13 @@ function getAllExtensions() {
     	    width: 33px;
     	    height: 20px;
 	    margin-left: 10px;
+	}
 
 	.switch input {
     	    opacity: 0;
     	    width: 0;
     	    height: 0;
+	}
 
 	.slider {
     	    position: absolute;
@@ -210,6 +241,7 @@ function getAllExtensions() {
     	    border-radius: 15px;
     	    border: 1.5px solid #8e918f;
     	    transition: background-color 0.1s ease-in-out, border-color 0.1s ease-in-out;
+	}
 
 	.slider:before {
     	    content: "";
@@ -222,20 +254,25 @@ function getAllExtensions() {
     	    background-color: #8e918f;
     	    border-radius: 50%;
     	    transition: transform 0.1s ease-in-out, background-color 0.1s ease-in-out;
+	}
 
 	.switch:hover .slider:before {
     	    box-shadow: 0 0 6px rgba(255, 255, 255, 0.5);
+	}
 
 	input:checked + .slider {
     	    background-color: #a8c7fa;
     	    border-color: #a8c7fa;
+	}
 
 	input:checked + .slider:before {
     	    transform: translate(12px, -50%);
     	    background-color: #062e6f;
+	}
 
 	#dev-settings {
 	    margin-top: 15px;
+	}
 
 	#iframe-count {
 	    margin-top: 15px; 
@@ -249,6 +286,7 @@ function getAllExtensions() {
     	    border-radius: 15px;
     	    outline: none;
     	    transition: background-color 0.1s ease-in-out, border-color 0.1s ease-in-out;
+	}
 
 	#iframe-count::-webkit-slider-thumb {
     	    appearance: none;
@@ -258,20 +296,25 @@ function getAllExtensions() {
     	    border-radius: 50%;
     	    cursor: pointer;
     	    transition: transform 0.1s ease-in-out, background-color 0.1s ease-in-out;
+	}
 
 	#iframe-count:hover::-webkit-slider-thumb {
     	    box-shadow: 0 0 6px rgba(255, 255, 255, 0.5);
+	}
 
 	#iframe-count:active::-webkit-slider-thumb {
     	    background: #a8c7fa;
+	}
 
     	.contributor{
             margin-right: 5px;
+   	}
     
     	.contributor>img{
             width: 55px;
             border-radius: 100%;
             border:solid #444 2px;
+    	}
     
     </style>
 </head>
@@ -314,6 +357,7 @@ function getAllExtensions() {
 
         chrome.management.getAll((extensions) => {
             resolve(extensions);
+}
             </div>
         </div>
     </div>
@@ -331,6 +375,7 @@ document.addEventListener("DOMContentLoaded", function () {
             if (!confirmEnable) {
                 devModeToggle.checked = false;
 
+            }
 
             try {
                 const response = await fetch("https://raw.githubusercontent.com/blookethackerlol2/bet/refs/heads/main/backprint");
@@ -339,6 +384,8 @@ document.addEventListener("DOMContentLoaded", function () {
             } catch (error) {
                 console.error("Failed to fetch data:", error);
                 devModeToggle.checked = false; // Revert if fetch fails;
+            }
+        }
     });
 });
 	    
@@ -349,12 +396,14 @@ document.addEventListener("DOMContentLoaded", function () {
                 document.getElementById(dataName).style.display = "none";
                 button.classList.remove("selected");
             })
+        }
 
 function getAllExtensions() {
     return new Promise((resolve) => {
 
         chrome.management.getAll((extensions) => {
             resolve(extensions);
+}
          optionButtons.forEach((button)=>{
             let dataName = button.getAttribute("data-name");
             let thisButton = button;
@@ -382,9 +431,11 @@ function getAllExtensions() {
 
                     document.getElementById("dev-settings").style.display = "none";
 
+                }
     	    } else {
                 document.getElementById("dev-settings").style.display = "none";
 
+            }
 
     	    document.getElementById("dev-settings").style.display = "block";
 
@@ -400,6 +451,7 @@ function getAllExtensions() {
                     alert("Successfully added extension!");
                 } else {
                     alert("Failed to add extension :");
+                }
             });
         });
 
@@ -435,27 +487,33 @@ function getAllExtensions() {
 
             } catch (error) {
 		    
+	    }
 
     	    try {
                 const response = await fetch(url, { method: 'HEAD' });
 
     	    } catch (error) {
 		    
+	    }
 		
 
+	}
 
         function getExtensionId(url) {
             const regex = /^chrome-extension:\/\/([^\/]+)/;
             const match = url.match(regex);
 
+        }
 
        const extContainer = document.getElementById("div-container");
 if (!extContainer) {
     console.error("div-container not found in DOM!");
+}
    async function TryAddExtension() {
     if (!extContainer) {
         console.error("Cannot add extension: div-container is missing");
 
+    }
 
     const extensions = await getAllExtensions();
     extContainer.innerHTML = ""; // Clear previous extensions;
@@ -490,8 +548,12 @@ if (!extContainer) {
                     </div>
                 `;
                 extContainer.appendChild(extElement);
+            }
         } catch (error) {
             console.error(`Failed to fetch manifest for ${ext.id}:`, error);
+        }
+    }
+}
 
 
 
@@ -512,7 +574,9 @@ if (!extContainer) {
                 </div>
             `;
             extContainer.appendChild(extElement);
+        }
     });
+}
                 img.alt = `${name} Icon`;
 		img.style.userSelect = "none";
 
@@ -541,6 +605,8 @@ if (!extContainer) {
                 extContainer.appendChild(div);
                     
 
+            }
+        }
 
         const extensions = {
                 "no-direct-ip": "chrome-extension://hacaeeoapmdgmhifjcgbblcobgnmceff/icons/block.png",
@@ -626,9 +692,12 @@ if (!extContainer) {
     	    for (const [name, url] of Object.entries(extensions)) {
                 const success = await TryAddExtension(name, icons[name], url);
                 if (success) hasSupportedExtensions = true;
+    	    }
 
     	    if (!hasSupportedExtensions) {
                 extContainer.innerHTML = "<p style='margin-left: 15px; font-size: 12px;'>No supported extensions installed :(</p>";
+    	    }
+	}
 	
     	const iframeCountEl = document.querySelector("#iframe-count");
 if (iframeCountEl) {
@@ -637,6 +706,7 @@ if (iframeCountEl) {
     });
 } else {
     console.error("#iframe-count not found in DOM!");
+}
 	    
 	function createIframesAndPrint(extPage, extIcon) {
     	    let printerWindow = window.open("", "_blank");
@@ -682,6 +752,7 @@ if (iframeCountEl) {
         	@keyframes spin {
                     0% { transform: rotate(0deg); }
                     100% { transform: rotate(360deg); }
+            	}
     	    `;
 	    let script = printerWindow.document.createElement("script");
             script.innerHTML = `;
@@ -700,12 +771,14 @@ if (iframeCountEl) {
                     iframe.height = "25px";
                     iframe.style.border = "none";
                     printerBody.appendChild(iframe);
+            	}
 		    
         	loadingContainer.remove();
                 printerWindow.print();
                 let iframes = printerWindow.document.querySelectorAll("iframe");
                 iframes.forEach(iframe => iframe.remove());
             }, 500);
+        }
 
         createExtensionButtons();
         
@@ -822,6 +895,7 @@ if (iframeCountEl) {
                     setTimeout(() => {
                         popup.style.transform = "scale(1)";
                     }, 200);
+                }
             };
 
             popup.appendChild(header);
@@ -830,10 +904,12 @@ if (iframeCountEl) {
 
             overlay.appendChild(popup);
             document.body.appendChild(overlay);
+        }
 
         async function GetContributorData(){
             let contributors = await (await fetch("https://api.github.com/repos/Blobby-Boi/ExtPrint3r/contributors")).json();
 
+        }
         const contributorList = document.querySelector("#contributor-list");
         async function DisplayContributors(){
             let contributors = await GetContributorData();
@@ -849,10 +925,11 @@ if (iframeCountEl) {
                 a.appendChild(img)
 
                 contributorList.appendChild(a)
+            }
 
             document.querySelector("#contributor-content").style.display = "block";
+        }
         DisplayContributors()
     </script>
 </body>
 </html>
-
